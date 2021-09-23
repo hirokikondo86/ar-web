@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebGL</title>
+    <link rel="stylesheet" href="index.css" type="text/css" media="all" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+      integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
+    <script defer src="./index.js"></script>
+  </head>
+  <body>
+    <canvas id="c" width="640" height="480"></canvas>
+    <script id="vertexShader2d" type="notjs">
+
+      // an attribute will receive data from a buffer
+      attribute vec4 a_position;
+
+      // all shaders have a main function
+      void main() {
+
+        // gl_Position is a special variable a vertex shader
+        // is responsible for setting
+        gl_Position = a_position;
+      }
+    </script>
+    <script id="fragmentShader2d" type="notjs">
+
+      // fragment shaders don't have a default precision so we need
+      // to pick one. mediump is a good default
+      precision mediump float;
+
+      void main() {
+        // gl_FragColor is a special variable a fragment shader
+        // is responsible for setting
+        gl_FragColor = vec4(1, 0, 0.5, 1); // return redish-purple
+      }
+    </script>
+  </body>
+</html>
