@@ -1,7 +1,7 @@
-const video = document.getElementById("video");
-const canvas = document.getElementById("canvas");
-const photo = document.getElementById("photo");
-const startButton = document.getElementById("startButton");
+const video = document.querySelector("#video");
+const canvas = document.querySelector("#canvas");
+const photo = document.querySelector("#photo");
+const startButton = document.querySelector("#startButton");
 
 let width = 500;
 let height = 0;
@@ -15,6 +15,15 @@ const startVideo = async () => {
     });
   video.srcObject = stream;
   video.play();
+};
+
+const clearPhoto = () => {
+  const context = canvas.getContext("2d");
+  context.fillStyle = "#AAA";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  const data = canvas.toDataURL("image/png");
+  photo.setAttribute("src", data);
 };
 
 const initPhoto = () => {
@@ -37,15 +46,6 @@ const initPhoto = () => {
   clearPhoto();
 };
 
-const clearPhoto = () => {
-  const context = canvas.getContext("2d");
-  context.fillStyle = "#AAA";
-  context.fillRect(0, 0, canvas.width, canvas.height);
-
-  const data = canvas.toDataURL("image/png");
-  photo.setAttribute("src", data);
-};
-
 const takePicture = () => {
   if (width && height) {
     const context = canvas.getContext("2d");
@@ -58,7 +58,11 @@ const takePicture = () => {
   }
 };
 
-startVideo();
+const main = () => {
+  startVideo();
 
-video.addEventListener("canplay", initPhoto);
-startButton.addEventListener("click", takePicture);
+  video.addEventListener("canplay", initPhoto);
+  startButton.addEventListener("click", takePicture);
+};
+
+main();

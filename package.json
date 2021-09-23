@@ -1,7 +1,6 @@
 {
   "name": "ar-web",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "ssh://git@github.com/hirokikondo86/ar-web.git",
   "author": "Hiroki Kondo <hirokikondo86@gmail.com>",
   "license": "MIT"
