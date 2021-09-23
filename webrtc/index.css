@@ -1,0 +1,12 @@
+.camera {
+  margin-bottom: 1rem;
+}
+
+#startButton {
+  display: block;
+  height: 40px;
+}
+
+#canvas {
+  display: none;
+}
